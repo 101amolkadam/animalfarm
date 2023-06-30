@@ -44,7 +44,7 @@ function useAnimalSearch() {
 
   const search = async (q) => {
     const response = await fetch(
-      'http://localhost:8080?' + new URLSearchParams({ q })
+      'animalfarm.amolkadam4.repl.co?' + new URLSearchParams({ q })
     );
     const data = await response.json();
     setAnimals(data);
