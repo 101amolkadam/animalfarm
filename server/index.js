@@ -1,6 +1,6 @@
-import express from 'express';
-import cors from 'cors';
-import Chance from 'chance';
+const express = require('express');
+const cors = require('cors');
+const Chance = require('chance');
 
 // Initialize the express app
 const app = express();
@@ -11,23 +11,23 @@ app.use(express.json());
 const chance = new Chance();
 
 const animals = [...Array(250).keys()].map(id => {
-    return {
-        id,
-        type: chance.animal(),
-        age: chance.age(),
-        name: chance.name(),
-    }
+  return {
+    id,
+    type: chance.animal(),
+    age: chance.age(),
+    name: chance.name(),
+  }
 });
 
 // Endpoint to search for animals
 app.get('', (req, res) => {
 
-    // Filter results by query
-    const q = req.query.q?.toLowerCase() || '';
-    const results = animals.filter(animal => animal.type.toLowerCase().includes(q));
+  // Filter results by query
+  const q = req.query.q?.toLowerCase() || '';
+  const results = animals.filter(animal => animal.type.toLowerCase().includes(q));
 
-    res.send(results);
+  res.send(results);
 
 });
 
-app.listen(8080, () => console.log('Listening on port http://localhost:8080'));
+app.listen(8080, () => console.log(`Listening on https://replit.com/@AmolKadam4/animalfarm#index.js`));
